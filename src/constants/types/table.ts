@@ -1,17 +1,24 @@
 import { IStyle } from "../interfaces/interfaces"
 
-export type TableHeadComponent = {
-    name: string
+export interface TableHeadComponent extends IStyle {
+    name: string,
+    colSpan?: number
 }
 
 export interface TableCellComponent extends IStyle {
     isInput?: boolean,
-    type: string | "number" | "text" | "",
-    value?: string
+    colSpan?: number,
+    type: string,
+    value?: string | number
 }
+
+export type TableRowComponent = TableCellComponent[]
+export type TablePageComponent = TableRowComponent[]
 
 export interface TableComponent extends React.PropsWithChildren, IStyle {
     title: string,
     heads: string[],
-    cells: TableCellComponent[]
+    cells: TablePageComponent,
+    withPlugins?: boolean,
+    withTotals?: boolean
 }

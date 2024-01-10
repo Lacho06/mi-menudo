@@ -1,17 +1,19 @@
-import { Link } from "react-router-dom"
 import { ROUTE_ADMIN_PANEL_URL, ROUTE_DEPARTMENT_URL, ROUTE_OCCUPATION_URL, ROUTE_WORKERS_TEMPLATE_URL } from "../constants/routes/routes"
 
-const BannerAdmin = ({ className = "" }: { className?: string }) => {
+import BannerMenuItem from './BannerMenuItem';
+import { IStyle } from "../constants/interfaces/interfaces"
+
+const BannerAdmin = ({ className = "" }: IStyle) => {
     return (
-        <aside className={`hidden md:inline h-screen bg-secondary-300 ${className}`}>
-            <nav className='flex flex-col items-center h-full gap-4 py-5 text-white'>
+        <aside className={`hidden md:inline min-h-screen h-full pt-5 bg-secondary-300 ${className}`}>
+            <nav className='sticky flex flex-col items-center gap-4 text-white top-[15%]'>
                 <h2>Panel administrativo</h2>
-                <hr className="text-white w-2/3 mb-4" />
+                <hr className="w-2/3 mb-4 text-white" />
                 <ul className="flex flex-col gap-4">
-                    <li className="hover:text-accent-400"><Link to={ROUTE_ADMIN_PANEL_URL}>Inicio</Link></li>
-                    <li className="hover:text-accent-400"><Link to={ROUTE_WORKERS_TEMPLATE_URL}>Gestionar plantilla</Link></li>
-                    <li className="hover:text-accent-400"><Link to={ROUTE_DEPARTMENT_URL}>Gestionar departamentos</Link></li>
-                    <li className="hover:text-accent-400"><Link to={ROUTE_OCCUPATION_URL}>Gestionar cargo</Link></li>
+                    <BannerMenuItem name="Inicio" url={ROUTE_ADMIN_PANEL_URL} icon="../../src/assets/icons/models-white.svg" />
+                    <BannerMenuItem name="Plantilla" url={ROUTE_WORKERS_TEMPLATE_URL} icon="../../src/assets/icons/workers-template-white.svg" />
+                    <BannerMenuItem name="Departamentos" url={ROUTE_DEPARTMENT_URL} icon="../../src/assets/icons/departments-white.svg" />
+                    <BannerMenuItem name="Cargos" url={ROUTE_OCCUPATION_URL} icon="../../src/assets/icons/business-position-white.svg" />
                 </ul>
             </nav>
         </aside>

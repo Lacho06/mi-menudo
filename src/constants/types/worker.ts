@@ -1,7 +1,10 @@
 export type Worker = {
-    id: number,
+    id?: number,
     name: string,
-    salary: number
+    ci?: number,
+    account?: number,
+    workedHours?: number,
+    salary?: number
 }
 
 export enum WorkerActionType {
@@ -12,9 +15,5 @@ export enum WorkerActionType {
 
 export interface WorkerAction {
     type: WorkerActionType,
-    payload: {
-        id?: number,
-        name: string,
-        salary: number
-    }
+    payload: Worker
 }

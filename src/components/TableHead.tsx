@@ -1,8 +1,8 @@
 import { TableHeadComponent } from "../constants/types/table"
 
-const TableHead = ({ name }: TableHeadComponent) => {
+const TableHead = ({ name, colSpan = undefined, className = "" }: TableHeadComponent) => {
     return (
-        <th className='w-1/12 border-x border-primary-700 hover:bg-primary-800'>{ name }</th>
+        <th className={`w-1/12 border-x border-secondary-700 hover:bg-secondary-800 ${className}`} colSpan={colSpan && colSpan}>{ name }</th>
     )
 }
 

@@ -1,14 +1,15 @@
-import Navbar from '../../components/Navbar';
-import BannerAdmin from '../../components/BannerAdmin';
-import { departments as allDepartments } from '../../mokups/departments';
-import Swal from 'sweetalert2';
 import { useReducer, useState } from 'react';
-import { departmentReducer } from '../../hooks/reducers/departmentReducer';
+
+import BannerAdmin from '../../components/BannerAdmin';
 import { DepartmentActionType } from '../../constants/types/department';
+import Navbar from '../../components/Navbar';
+import Swal from 'sweetalert2';
+import { departments as allDepartments } from '../../mokups/departments';
+import { departmentReducer } from '../../hooks/reducers/departmentReducer';
 
 const DepartmentPage = () => {
-    const [newDepartment, setNewDepartment] = useState<{ id: number, name: string }>({
-        id: 0,
+    const [newDepartment, setNewDepartment] = useState<{ id?: number, name: string }>({
+        id: undefined,
         name: ''
     })
     const [departments, dispatch] = useReducer(departmentReducer, allDepartments)
@@ -20,9 +21,10 @@ const DepartmentPage = () => {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         if(!e.target)return null
-        dispatch({ type: DepartmentActionType.ADD, payload: newDepartment })
+        // TODO problemas con el id
+        dispatch({ type: DepartmentActionType.ADD, payload: { id: newDepartment.id || allDepartments.length+1, ...newDepartment } })
         setNewDepartment({
-            id: 0,
+            id: undefined,
             name: ''
         })
     }
