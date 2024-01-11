@@ -1,9 +1,9 @@
 import { IStyle } from './../../constants/interfaces/interfaces';
-import { useModal } from "../../hooks/useModal";
 
 interface Modal extends React.PropsWithChildren, IStyle {
     title?: string,
-    toggleModal: boolean,
+    dialogRef: React.LegacyRef<HTMLDialogElement>,
+    closeModal: () => void,
     acceptButton?: boolean,
     closeButton?: boolean,
     acceptAction?: () => void,
@@ -11,9 +11,7 @@ interface Modal extends React.PropsWithChildren, IStyle {
     closeButtonName?: string
 }
 
-const Modal = ({ className = "", children, title, toggleModal, acceptButton = false, acceptAction = () => {}, acceptButtonName = "Hecho", closeButton = false, closeButtonName = "Cancelar" }: Modal) => {
-    const [dialogRef, closeModal] = useModal(toggleModal)
-    
+const Modal = ({ className = "", children, title, dialogRef, closeModal, acceptButton = false, acceptAction = () => {}, acceptButtonName = "Hecho", closeButton = false, closeButtonName = "Cancelar" }: Modal) => {    
     return (
         <dialog ref={dialogRef} className={`${className} min-w-[500px] min-h-[200px] py-5 px-20 shadow-lg rounded-md outline outline-1 outline-primary-700 shadow-primary-400`}>
             <div className="w-full min-h-[150px] flex flex-col items-center gap-8">

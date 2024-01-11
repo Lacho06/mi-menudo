@@ -2,17 +2,17 @@ import { useEffect, useState } from "react"
 
 import { optionsElementsPerPage } from "../../constants/components/table"
 
-export function usePaginator(refreshData: (elementsPerPage: number) => void, INITIAL_PAGE: number = 1): [number, number, (newPage: number) => void, (newElementsPerPage: number) => void]{
+export function usePaginator(refreshPage: (elementsPerPage: number) => void, INITIAL_PAGE: number = 1): [number, number, (newPage: number) => void, (newElementsPerPage: number) => void]{
     const [elementsPerPage, setElementsPerPage] = useState(optionsElementsPerPage[0])
     const [page, setPage] = useState(INITIAL_PAGE)
 
     useEffect(() => {
         setPage(INITIAL_PAGE)
-        refreshData(elementsPerPage)
+        refreshPage(elementsPerPage)
     }, [elementsPerPage])
-    
+
     useEffect(() => {
-        refreshData(elementsPerPage)
+        refreshPage(elementsPerPage)
     }, [page])
 
     const changePage = (newPage: number) => {

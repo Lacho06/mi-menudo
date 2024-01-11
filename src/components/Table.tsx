@@ -7,7 +7,7 @@ import TableSearchPlugin from "./plugins/TableSearchPlugin";
 import { optionsElementsPerPage } from "../constants/components/table";
 import { usePaginator } from "../hooks/plugins/usePaginator";
 import { useSearch } from "../hooks/plugins/useSearch";
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const Table = ({ title, heads, cells, children, className = "", withPlugins = false, withTotals = false }: TableComponent) => {
     const formatPages = (elementsPerPage: number = optionsElementsPerPage[0], tableCells: TablePageComponent = cells) => {
@@ -62,24 +62,35 @@ const Table = ({ title, heads, cells, children, className = "", withPlugins = fa
     }
 
     const [tableCells, setTableCells] = useState<TablePageComponent[]>(formatPages())
+    const [tableResults, setTableResults] = useState<TablePageComponent[]>([])
     const refreshPage = (elementsPerPage: number) => {
         setTableCells(formatPages(elementsPerPage))
     }
     const [page, elementsPerPage, changePage, changeElementsPerPage] = usePaginator(refreshPage)
 
     const refreshData = (results: TablePageComponent) => {
-        setTableCells(formatPages(elementsPerPage, results))
+        setTableResults(formatPages(elementsPerPage, results))
         changePage(1)
     }
 
     const [search, emptySearch, changeSearch, submitSearch] = useSearch(formatPages(), refreshData)
+
+    useEffect(() => {
+        setTableCells(formatPages())
+    }, [cells])
+
+    useEffect(() => {
+        if(!search){
+            setTableResults([])
+        }
+    }, [search])
 
     return (
         <div className={`${className}`}>
             {
                 withPlugins && (
                     <section className="flex justify-end py-3 mx-3">
-                        <TablePaginatorPlugin tableCells={tableCells} page={page} elementsPerPage={elementsPerPage} changePage={changePage} changeElementsPerPage={changeElementsPerPage} />
+                        <TablePaginatorPlugin tableCells={tableResults.length > 0 ? tableResults : tableCells} page={page} elementsPerPage={elementsPerPage} changePage={changePage} changeElementsPerPage={changeElementsPerPage} />
                         <TableSearchPlugin search={search} changeSearch={changeSearch} submitSearch={submitSearch} />
                     </section>
                 )
@@ -102,6 +113,17 @@ const Table = ({ title, heads, cells, children, className = "", withPlugins = fa
                         {
                             withPlugins ? (
                                 !emptySearch ? (
+                                    (tableResults.length !== 0) ? (
+                                        (tableResults[page-1]?.length > 0) && tableResults[page-1].map((row, index) => {
+                                            return (<tr key={index} className='border-b border-secondary-700'>
+                                                {
+                                                    row.map((cell, i) => {
+                                                        return <TableCell key={i} type={cell.type} isInput={cell.isInput} className={cell.className} value={cell.value} />
+                                                    })
+                                                }
+                                            </tr>)
+                                        })
+                                    ) :
                                     (tableCells[page-1]?.length > 0) && tableCells[page-1].map((row, index) => {
                                         return (<tr key={index} className='border-b border-secondary-700'>
                                             {

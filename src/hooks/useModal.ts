@@ -1,6 +1,6 @@
-import { useEffect, useRef } from "react"
+import { useRef } from "react"
 
-export function useModal(initialValue = true): [React.LegacyRef<HTMLDialogElement>, () => void, () => void] {
+export function useModal(): [React.LegacyRef<HTMLDialogElement>, () => void, () => void] {
     const dialogRef = useRef<HTMLDialogElement>(null)
     const closeModal = () => {
         dialogRef.current?.close()
@@ -9,14 +9,6 @@ export function useModal(initialValue = true): [React.LegacyRef<HTMLDialogElemen
     const openModal = () => {
         dialogRef.current?.showModal()
     }
-
-    useEffect(() => {
-        if(initialValue){
-            openModal()
-        }else{
-            closeModal()
-        }
-    }, [initialValue])
     
     return [dialogRef, openModal, closeModal]
 }

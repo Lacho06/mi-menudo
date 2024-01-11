@@ -19,7 +19,7 @@ export function useSearch(table: TablePageComponent[], refreshData: (results: Ta
         const auxTableCells = [...table]
         auxTableCells.forEach(pageCells => {
             pageCells.map(rowCells => {
-                if(rowCells.some(itemCells => itemCells.value?.trim()?.toLowerCase()?.includes(searchedValue.trim().toLowerCase()))){
+                if(rowCells.some(itemCells => itemCells.value?.toString()?.trim()?.toLowerCase()?.includes(searchedValue.trim().toLowerCase()))){
                     results.push(rowCells)
                 }
             })

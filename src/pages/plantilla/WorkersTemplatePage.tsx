@@ -8,6 +8,7 @@ import { workers as allWorkers } from '../../mokups/workers';
 import { workersReducer } from '../../hooks/reducers/workersReducer';
 import FormModal from '../../components/modals/FormModal';
 import BreadCrumbs from './../../components/BreadCrumbs';
+import { useModal } from '../../hooks/useModal';
 
 const WorkersTemplatePage = () => {
     const initialWorker = {
@@ -25,7 +26,6 @@ const WorkersTemplatePage = () => {
     const handleSubmit = () => {
         dispatch({ type: WorkerActionType.ADD, payload: newWorker })
         setNewWorker(initialWorker)
-        setToggleModal(false)
     }
 
     const heads = ['ID', 'Nombre', 'CI', 'Cuenta bancaria', 'Salario', 'H. Trab', 'Acciones']
@@ -63,7 +63,7 @@ const WorkersTemplatePage = () => {
             ]
         })
     }
-    const [toggleModal, setToggleModal] = useState(false)
+    const [dialogRef, openModal, closeModal] = useModal()
 
     return (
         <>
@@ -73,9 +73,9 @@ const WorkersTemplatePage = () => {
                 <section className='col-span-12 md:col-span-10 md:px-2 md:py-4 flex flex-col gap-4 md:gap-12'>
                     <nav className='flex justify-between items-center bg-accent-800 py-4 px-2'>
                         <BreadCrumbs />
-                        <button className='bg-accent-400 text-secondary-300 px-2' onClick={() => setToggleModal(true)}>Agregar trabajador</button>
+                        <button className='bg-accent-400 text-secondary-300 px-2' onClick={openModal}>Agregar trabajador</button>
                     </nav>
-                    <FormModal title='Agregar trabajador' toggleModal={toggleModal} setToggleModal={setToggleModal} closeButton submitButtonName='Agregar' submitAction={ () => handleSubmit() }>
+                    <FormModal title='Agregar trabajador' dialogRef={dialogRef} closeModal={closeModal} closeButton submitButtonName='Agregar' submitAction={ () => handleSubmit() }>
                         <input type="text" value={newWorker.name || ""} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNewWorker({ ...newWorker, [e.target.name]: e.target.value})} name='name' placeholder='Nombre' className='border-2 outline-light-primary-800 text-xl p-1 rounded-md focus:outline-light-primary-600' />
                         <input type="number" value={newWorker.ci || ""} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNewWorker({ ...newWorker, [e.target.name]: e.target.value})} name='ci' placeholder='CI' className='border-2 outline-light-primary-800 text-xl p-1 rounded-md focus:outline-light-primary-600' />
                         <input type="number" value={newWorker.account || ""} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNewWorker({ ...newWorker, [e.target.name]: e.target.value})} name='account' placeholder='Cuenta bancaria' className='border-2 outline-light-primary-800 text-xl p-1 rounded-md focus:outline-light-primary-600' />
