@@ -1,14 +1,15 @@
+import { ROUTE_ADMIN_PANEL_URL, ROUTE_WORKERS_TEMPLATE_URL } from '../../constants/routes/routes';
 import { useReducer, useState } from 'react';
 
 import BannerAdmin from '../../components/BannerAdmin';
+import BreadCrumbs from './../../components/BreadCrumbs';
+import FormModal from '../../components/modals/FormModal';
 import Navbar from '../../components/Navbar';
 import Table from './../../components/Table';
 import { WorkerActionType } from '../../constants/types/worker';
 import { workers as allWorkers } from '../../mokups/workers';
-import { workersReducer } from '../../hooks/reducers/workersReducer';
-import FormModal from '../../components/modals/FormModal';
-import BreadCrumbs from './../../components/BreadCrumbs';
 import { useModal } from '../../hooks/useModal';
+import { workersReducer } from '../../hooks/reducers/workersReducer';
 
 const WorkersTemplatePage = () => {
     const initialWorker = {
@@ -70,9 +71,9 @@ const WorkersTemplatePage = () => {
             <Navbar className='sticky top-0' />
             <div className='grid grid-cols-12'>
                 <BannerAdmin className='md:col-span-2' />
-                <section className='col-span-12 md:col-span-10 md:px-2 md:py-4 flex flex-col gap-4 md:gap-12'>
+                <section className='col-span-12 md:col-span-10 md:px-2 md:py-4 flex flex-col gap-4 md:gap-10'>
                     <nav className='flex justify-between items-center bg-accent-800 py-4 px-2'>
-                        <BreadCrumbs />
+                        <BreadCrumbs links={[{name: 'Inicio', url: ROUTE_ADMIN_PANEL_URL}, {name: 'Plantilla', url: ROUTE_WORKERS_TEMPLATE_URL}]} />
                         <button className='bg-accent-400 text-secondary-300 px-2' onClick={openModal}>Agregar trabajador</button>
                     </nav>
                     <FormModal title='Agregar trabajador' dialogRef={dialogRef} closeModal={closeModal} closeButton submitButtonName='Agregar' submitAction={ () => handleSubmit() }>

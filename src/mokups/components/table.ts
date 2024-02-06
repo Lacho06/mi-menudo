@@ -16,7 +16,7 @@ export const tableHeads = [
 export const tableCells = [
     [
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "1"},
-        {isInput: false, colSpan: undefined, type: "", className: undefined, value: "Dayli"},
+        {isInput: false, colSpan: undefined, type: "", className: undefined, value: "Trab 1"},
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "20"},
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "12"},
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "0"},
@@ -30,7 +30,7 @@ export const tableCells = [
     ],
     [
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "2"},
-        {isInput: false, colSpan: undefined, type: "", className: undefined, value: "William"},
+        {isInput: false, colSpan: undefined, type: "", className: undefined, value: "Trab 2"},
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "40"},
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "3"},
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "0"},
@@ -44,7 +44,7 @@ export const tableCells = [
     ],
     [
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "3"},
-        {isInput: false, colSpan: undefined, type: "", className: undefined, value: "Popote"},
+        {isInput: false, colSpan: undefined, type: "", className: undefined, value: "Trab 3"},
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "36"},
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "15"},
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "0"},
@@ -58,7 +58,7 @@ export const tableCells = [
     ],
     [
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "4"},
-        {isInput: false, colSpan: undefined, type: "", className: undefined, value: "Mami"},
+        {isInput: false, colSpan: undefined, type: "", className: undefined, value: "Trab 4"},
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "26"},
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "8"},
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "0"},
@@ -72,7 +72,7 @@ export const tableCells = [
     ],
     [
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "5"},
-        {isInput: false, colSpan: undefined, type: "", className: undefined, value: "Alejandra"},
+        {isInput: false, colSpan: undefined, type: "", className: undefined, value: "Trab 5"},
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "30"},
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "7"},
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "0"},
@@ -86,7 +86,7 @@ export const tableCells = [
     ],
     [
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "6"},
-        {isInput: false, colSpan: undefined, type: "", className: undefined, value: "Jose"},
+        {isInput: false, colSpan: undefined, type: "", className: undefined, value: "Trab 6"},
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "32"},
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "6"},
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "0"},
@@ -100,7 +100,7 @@ export const tableCells = [
     ],
     [
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "7"},
-        {isInput: false, colSpan: undefined, type: "", className: undefined, value: "Juan"},
+        {isInput: false, colSpan: undefined, type: "", className: undefined, value: "Trab 7"},
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "18"},
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "17"},
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "0"},
@@ -114,7 +114,7 @@ export const tableCells = [
     ],
     [
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "8"},
-        {isInput: false, colSpan: undefined, type: "", className: undefined, value: "Pedro"},
+        {isInput: false, colSpan: undefined, type: "", className: undefined, value: "Trab 8"},
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "22"},
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "9"},
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "0"},
@@ -128,7 +128,7 @@ export const tableCells = [
     ],
     [
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "9"},
-        {isInput: false, colSpan: undefined, type: "", className: undefined, value: "Pepe"},
+        {isInput: false, colSpan: undefined, type: "", className: undefined, value: "Trab 9"},
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "35"},
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "1"},
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "0"},
@@ -142,7 +142,7 @@ export const tableCells = [
     ],
     [
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "10"},
-        {isInput: false, colSpan: undefined, type: "", className: undefined, value: "Lazaro"},
+        {isInput: false, colSpan: undefined, type: "", className: undefined, value: "Trab 10"},
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "26"},
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "10"},
         {isInput: false, colSpan: undefined, type: "", className: undefined, value: "0"},

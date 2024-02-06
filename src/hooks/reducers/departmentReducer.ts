@@ -5,7 +5,7 @@ export function departmentReducer(departments: Department[], action: DepartmentA
 
     switch(type){
         case DepartmentActionType.ADD:
-            return [...departments, { id: payload.id, name: payload.name } ]
+            return [...departments, { id: payload.id, name: payload.name, areaId: payload.areaId } ]
         case DepartmentActionType.DELETE:
             return departments.filter(department => department.id !== payload.id)
     }

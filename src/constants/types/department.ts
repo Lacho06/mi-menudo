@@ -1,6 +1,7 @@
 export type Department = {
     id: number,
-    name: string
+    name: string,
+    areaId: number
 }
 
 export enum DepartmentActionType {

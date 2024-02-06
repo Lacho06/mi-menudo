@@ -1,4 +1,3 @@
-import '../styles/components/FormInputAuth.css'
 const FormInputAuth = ({ icon, type, name, text, placeholder }: { icon: string, type: string, name: string, text: string, placeholder: string }) => {
     return (
         <div className="flex flex-col w-full gap-4 form-input-container">

@@ -99,12 +99,12 @@ const Table = ({ title, heads, cells, children, className = "", withPlugins = fa
                 <table className='bg-white'>
                     <thead>
                         <tr className='text-black border-b bg-light-secondary-800 border-secondary-700'>
-                            <TableHead name={title} colSpan={heads.length} />
+                            <TableHead name={ title } colSpan={ heads.length } />
                         </tr>
                         <tr className='text-black border-b bg-light-secondary-900 border-secondary-700'>
                             {
                                 (heads.length > 0) && heads.map((head, index) => {
-                                    return <TableHead key={index} name={ head } />
+                                    return <TableHead key={ index } name={ head } />
                                 })
                             }
                         </tr>

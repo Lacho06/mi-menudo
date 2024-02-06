@@ -12,12 +12,16 @@ export const ROUTE_PAYROLL_LIST_URL = '/payrolls'
 
 // admin routes
 export const ROUTE_ADMIN_PANEL_URL = '/admin'
+export const ROUTE_ADMIN_CONFIG_URL = '/admin/config'
 
 // workers template routes
-export const ROUTE_WORKERS_TEMPLATE_URL = '/workers-template'
+export const ROUTE_WORKERS_TEMPLATE_URL = '/admin/workers-template'
 
 // department routes
-export const ROUTE_DEPARTMENT_URL = '/department'
+export const ROUTE_DEPARTMENT_URL = '/admin/department'
+
+// department routes
+export const ROUTE_AREA_URL = '/admin/area'
 
 // occupation routes
-export const ROUTE_OCCUPATION_URL = '/occupation'
+export const ROUTE_OCCUPATION_URL = '/admin/occupation'
